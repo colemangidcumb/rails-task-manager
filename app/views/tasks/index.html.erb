@@ -1,1 +1,17 @@
+<div class = "container col-6 text-center">
+
 <h1>Here are your current tasks</h1>
+<% @tasks.each do |task| %>
+<ul>
+  <li>
+    <div>
+      <%= link_to task.title, task_path(task) %>
+    </div>
+    <div>
+      <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "you sure you wanna do that bob?" }  %>
+    </div>
+  </li>
+</ul>
+<% end %>
+<%= link_to 'Add a new task', new_task_path %>
+</div>
